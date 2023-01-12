@@ -1,2 +1,2 @@
 <input type="text" [(ngModel)]="imgParent">
-<app-img [img]="imgParent"></app-img><!--este componente se toma desde el img.component.ts de la propiedad selector-->
+<app-img [img]="imgParent" (loaded)="imgLoaded($event)"></app-img><!--este componente se toma desde el img.component.ts de la propiedad selector-->

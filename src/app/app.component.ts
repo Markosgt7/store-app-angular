@@ -7,5 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   imgParent = '';
-  //imgParent = 'https://andeguat.org.gt/wp-content/uploads/2015/02/default-placeholder.png';
+  imgLoaded(img:string){
+    console.log('loaded padre', img);
+  }
 }
