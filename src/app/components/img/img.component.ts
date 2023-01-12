@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, AfterViewInit, OnDestroy, SimpleChange } from '@angular/core';
 
 @Component({
   selector: 'app-img',
@@ -6,10 +6,18 @@ import { Component, OnInit, Input, Output, EventEmitter, OnChanges, AfterViewIni
   styleUrls: ['./img.component.scss']
 })
   export class ImgComponent implements OnInit{
+    //haciendo uso de SetInput
+    img:string = '';
+
+    @Input('img')
+      set changeImg(newImg: string){
+        this.img = newImg;
+        console.log('change just image =>', this.img);
+      } 
+    @Input() alt:string = '';
+    @Output() loaded = new EventEmitter<string>();
     counter = 0;
     counterFn: number | undefined;
-    @Input() img:string = '';//recibe el valor desde el html del componente padre y cambi su valor
-    @Output() loaded = new EventEmitter<string>();
     imgDefault='https://andeguat.org.gt/wp-content/uploads/2015/02/default-placeholder.png';
     imgDefault2='https://www.shutterstock.com/image-vector/picture-vector-icon-no-image-600w-1732584341.jpg';
     //url avata= https://www.w3schools.com/howto/img_avatar.png
@@ -18,18 +26,20 @@ import { Component, OnInit, Input, Output, EventEmitter, OnChanges, AfterViewIni
     constructor(){
       //before render
       //not run async as -- just run one time
-      console.log('constructor','imgValue=>',this.imgDefault2)
+      console.log('constructor','imgValue=>',this.img)
     }
-    ngOnchanges(){
+    ngOnchanges(changes: SimpleChange){
       //before and on during render
       //su funcion es actualizar los inputs de nuestro componente, y se repite many times.
-      console.log('ngOnchanges','imgValue=>',this.imgDefault)
+      console.log('ngOnchanges imgValue=>',this.img);
+      console.log('changes=>',changes);
+
     }
     ngOnInit(): void { 
       //run before render
       // in this block of code we can make de async functions or petitions to the backend or API'S, fetch, promise etc.
       //this block run just one time
-      console.log('ngOnInit','imgValue=>',this.imgDefault)
+      console.log('ngOnInit','imgValue=>',this.img)
       this.counterFn = window.setInterval(()=>{
         this.counter +=1;
         console.log('run counter');
