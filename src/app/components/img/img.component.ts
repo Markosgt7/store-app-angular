@@ -6,6 +6,8 @@ import { Component, OnInit, Input, Output, EventEmitter, OnChanges, AfterViewIni
   styleUrls: ['./img.component.scss']
 })
   export class ImgComponent implements OnInit{
+    counter = 0;
+    counterFn: number | undefined;
     @Input() img:string = '';//recibe el valor desde el html del componente padre y cambi su valor
     @Output() loaded = new EventEmitter<string>();
     imgDefault='https://andeguat.org.gt/wp-content/uploads/2015/02/default-placeholder.png';
@@ -28,6 +30,10 @@ import { Component, OnInit, Input, Output, EventEmitter, OnChanges, AfterViewIni
       // in this block of code we can make de async functions or petitions to the backend or API'S, fetch, promise etc.
       //this block run just one time
       console.log('ngOnInit','imgValue=>',this.imgDefault)
+      this.counterFn = window.setInterval(()=>{
+        this.counter +=1;
+        console.log('run counter');
+      },1000);
     }
     ngAfterViewInit(){
       //run after render 
@@ -36,7 +42,8 @@ import { Component, OnInit, Input, Output, EventEmitter, OnChanges, AfterViewIni
     }
     ngOnDestroy(){
       //delete
-      console.log('Ondestroy')
+      console.log('Ondestroy');
+      window.clearInterval(this.counterFn);
     }
     imgError(){
       this.img = this.imgDefault2;

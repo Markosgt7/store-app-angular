@@ -1,5 +1,7 @@
-<input type="text" [(ngModel)]="imgParent">
-<app-img [img]="imgParent" (loaded)="imgLoaded($event)"></app-img><!--este componente se toma desde el img.component.ts de la propiedad selector-->
+<input type="text" [(ngModel)]="imgParent"><br>
+<button (click)="toggleImg()">Toogle image</button>
+<p>{{ showImage }}</p>
+<app-img *ngIf="showImage" [img]="imgParent" (loaded)="imgLoaded($event)"></app-img><!--este componente se toma desde el img.component.ts de la propiedad selector-->
 
 <h1>My Store</h1>
 <app-product [product]="product" *ngFor="let product of products; index as i"></app-product>
