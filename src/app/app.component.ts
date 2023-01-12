@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'my-store-app';
+  imgParent = '';
+  //imgParent = 'https://andeguat.org.gt/wp-content/uploads/2015/02/default-placeholder.png';
 }

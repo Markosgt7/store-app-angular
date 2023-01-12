@@ -1,1 +1,5 @@
 <p>img works!</p>
+<img [src]="img" *ngIf="img; else elseImg" width="250">
+<ng-template #elseImg>
+    <img src="https://andeguat.org.gt/wp-content/uploads/2015/02/default-placeholder.png" alt="default" width="250">
+</ng-template>
