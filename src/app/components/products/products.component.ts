@@ -37,13 +37,7 @@ export class ProductsComponent {
       name:'New doll',
       price: 550,
       image:'https://andeguat.org.gt/wp-content/uploads/2015/02/default-placeholder.png'
-    },
-    {
-      id:'6',
-      name:'New Kit',
-      price: 250,
-      image:'https://andeguat.org.gt/wp-content/uploads/2015/02/default-placeholder.png'
-    },
+    }
   ]
 
 }
