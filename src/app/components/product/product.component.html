@@ -2,4 +2,5 @@
 <p>{{product.title}}</p>
 <!--se usa el pipe | para poder formatear el precio agregando el signo Q -->
 <h2>{{product.price  | currency:'Q'}}</h2>
+<p appHighlight>{{product.category}}</p>
 <button (click)="onAddToCar()">Add to Car</button>
