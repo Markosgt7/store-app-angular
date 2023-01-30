@@ -12,6 +12,10 @@
   <!-- hacemo uso del pipe date para formatear la fecha-->
   Otra fecha: {{ date | date:'yyyy-dd-MM'}}
 </p>
+<p>
+  <!-- hacemo uso del pipe creado por mi mismo y usando la libreria date-fns -->
+  Valor: {{ date | timeAgo}}
+</p>
 <div class="products--grid">
   <app-product
     [product]="product"
