@@ -9,7 +9,7 @@ export class StoreService {
   private myShoppingCar: Product[] =[]
   private myCart = new BehaviorSubject<Product[]>([])
   myCart$ = this.myCart.asObservable()
-  constructor() { }
+ 
   addProduct(product: Product){
     this.myShoppingCar.push(product)
     this.myCart.next(this.myShoppingCar)

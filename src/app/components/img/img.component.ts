@@ -1,11 +1,11 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges, AfterViewInit, OnDestroy, SimpleChange } from '@angular/core';
+import { Component, Input, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-img',
   templateUrl: './img.component.html',
   styleUrls: ['./img.component.scss']
 })
-  export class ImgComponent implements OnInit{
+  export class ImgComponent{
     //haciendo uso de SetInput
     img:string = '';
 
@@ -28,14 +28,14 @@ import { Component, OnInit, Input, Output, EventEmitter, OnChanges, AfterViewIni
       //not run async as -- just run one time
       //console.log('constructor','imgValue=>',this.img)
     }
-    ngOnchanges(changes: SimpleChange){
+    //ngOnchanges(changes: SimpleChange){
       //before and on during render
       //su funcion es actualizar los inputs de nuestro componente, y se repite many times.
       //console.log('ngOnchanges imgValue=>',this.img);
       //console.log('changes=>',changes);
 
-    }
-    ngOnInit(): void { 
+    //}
+    //ngOnInit(): void { 
       //run before render
       // in this block of code we can make de async functions or petitions to the backend or API'S, fetch, promise etc.
       //this block run just one time
@@ -44,17 +44,17 @@ import { Component, OnInit, Input, Output, EventEmitter, OnChanges, AfterViewIni
         this.counter +=1;
         console.log('run counter');
       },1000); */
-    }
-    ngAfterViewInit(){
+    //}
+    //ngAfterViewInit(){
       //run after render 
       //handler children
       //console.log('ngAfterViewInit')
-    }
-    ngOnDestroy(){
+    //}
+    //ngOnDestroy(){
       //delete
-      console.log('Ondestroy');
+      //console.log('Ondestroy');
       /* window.clearInterval(this.counterFn); */
-    }
+    //}
     imgError(){
       this.img = this.imgDefault2;
     }
