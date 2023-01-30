@@ -7,6 +7,8 @@ import { Product} from '../../models/product.model';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent {
+  myShoppingCar: Product[] =[]
+  total = 0
   products: Product[] =[
     {
       id:'1',
@@ -38,6 +40,10 @@ export class ProductsComponent {
       price: 550,
       image:'https://andeguat.org.gt/wp-content/uploads/2015/02/default-placeholder.png'
     }
-  ]
+  ];
+  onAddToShoppingCart(product: Product){
+    this.myShoppingCar.push(product)
+    this.total = this.myShoppingCar.reduce((sum, item) => sum + item.price, 0)
+  }
 
 }

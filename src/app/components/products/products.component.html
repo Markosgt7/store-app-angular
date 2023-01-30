@@ -1,6 +1,13 @@
+<p>
+  Productos por comprar {{ myShoppingCar.length }}
+</p>
+<p>
+  Total a pagar Q{{ total }}
+</p>
 <div class="products--grid">
   <app-product
     [product]="product"
     *ngFor="let product of products; index as i"
+    (addedProduct)="onAddToShoppingCart($event)"
   ></app-product>
 </div>

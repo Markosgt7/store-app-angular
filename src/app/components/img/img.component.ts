@@ -26,40 +26,40 @@ import { Component, OnInit, Input, Output, EventEmitter, OnChanges, AfterViewIni
     constructor(){
       //before render
       //not run async as -- just run one time
-      console.log('constructor','imgValue=>',this.img)
+      //console.log('constructor','imgValue=>',this.img)
     }
     ngOnchanges(changes: SimpleChange){
       //before and on during render
       //su funcion es actualizar los inputs de nuestro componente, y se repite many times.
-      console.log('ngOnchanges imgValue=>',this.img);
-      console.log('changes=>',changes);
+      //console.log('ngOnchanges imgValue=>',this.img);
+      //console.log('changes=>',changes);
 
     }
     ngOnInit(): void { 
       //run before render
       // in this block of code we can make de async functions or petitions to the backend or API'S, fetch, promise etc.
       //this block run just one time
-      console.log('ngOnInit','imgValue=>',this.img)
+      /* console.log('ngOnInit','imgValue=>',this.img)
       this.counterFn = window.setInterval(()=>{
         this.counter +=1;
         console.log('run counter');
-      },1000);
+      },1000); */
     }
     ngAfterViewInit(){
       //run after render 
       //handler children
-      console.log('ngAfterViewInit')
+      //console.log('ngAfterViewInit')
     }
     ngOnDestroy(){
       //delete
       console.log('Ondestroy');
-      window.clearInterval(this.counterFn);
+      /* window.clearInterval(this.counterFn); */
     }
     imgError(){
       this.img = this.imgDefault2;
     }
     imgLoaded(){
-     console.log(' loaded hijo');
+    // console.log(' loaded hijo');
      this.loaded.emit(this.img);
     }
   }
