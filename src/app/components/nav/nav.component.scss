@@ -39,6 +39,9 @@
     }
     .logo {
       margin-right: 1em;
+      img{
+        width: 70px;
+      }
     }
     nav {
       display: flex;
@@ -59,6 +62,7 @@
       .account {
         margin-right: .5em;
       }
+      
     }
   }
   
