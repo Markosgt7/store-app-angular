@@ -12,6 +12,9 @@ export class ProductsComponent {
   myShoppingCar: Product[] =[]
   total = 0
   products: Product[] =[];
+  //se usa el pipe Date para formatear en tipo fecha.
+  today = new Date();
+  date = new Date(2021,1,21);
   constructor(
     private storeService: StoreService,// se inyecta el servicio para agregar logica
     private productsService: ProductsService

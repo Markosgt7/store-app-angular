@@ -1,4 +1,5 @@
 <app-img [img]="product.image"></app-img>
 <p>{{product.title}}</p>
-<h2>{{product.price}}</h2>
+<!--se usa el pipe | para poder formatear el precio agregando el signo Q -->
+<h2>{{product.price  | currency:'Q'}}</h2>
 <button (click)="onAddToCar()">Add to Car</button>
