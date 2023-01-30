@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Product} from '../../models/product.model';
+import { StoreService } from '../../services/store.service';
 
 @Component({
   selector: 'app-products',
@@ -41,9 +42,14 @@ export class ProductsComponent {
       image:'https://andeguat.org.gt/wp-content/uploads/2015/02/default-placeholder.png'
     }
   ];
+  constructor(
+    private storeService: StoreService// se inyecta el servicio para agregar logica
+  ){
+    this.myShoppingCar = this.storeService.getmyShoppingCar()
+  }
   onAddToShoppingCart(product: Product){
-    this.myShoppingCar.push(product)
-    this.total = this.myShoppingCar.reduce((sum, item) => sum + item.price, 0)
+   this.storeService.addProduct(product)
+   this.total = this.storeService.getTotal()
   }
 
 }
